@@ -12,7 +12,8 @@
                 "/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino",
                 "/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/variants/mega",
                 "/Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include",
-                "/Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/4.9.2/include"
+                "/Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/4.9.2/include",
+                "/Users/Konrad/Documents/Arduino/libraries/IRremote"
             ],
             "defines": [],
             "intelliSenseMode": "clang-x64",
@@ -27,7 +28,8 @@
                     "/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino",
                     "/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/variants/mega",
                     "/Applications/Arduino.app/Contents/Java/hardware/tools/avr/avr/include",
-                    "/Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/4.9.2/include"
+                    "/Applications/Arduino.app/Contents/Java/hardware/tools/avr/lib/gcc/avr/4.9.2/include",
+                    "/Users/Konrad/Documents/Arduino/libraries/IRremote"
                 ],
                 "limitSymbolsToIncludedHeaders": false,
                 "databaseFilename": ""
