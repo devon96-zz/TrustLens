@@ -1,81 +1,70 @@
 #include <IRremote.h>
 #include <Arduino.h>
-/*
-Adafruit Arduino - Lesson 3. RGB LED
-*/
 
-int alarmPin = 11;
-int bathroomPin = 10;
-int fridgePin = 9;
-int loungePin = 8;
-int kidPin = 7;
+// Constants used by TrustLens
+const int alarmPin = 11;
+const int bathroomPin = 10;
+const int fridgePin = 9;
+const int loungePin = 8;
+const int kidPin = 7;
+const int doorPin = 6;
 
-int buttonPin = 12;
-int prevPress = 0;
+// Length of delay between each
+const int waitTime = 4000;
 
 void setup()
 {
+  // First initialize output on all pins
   pinMode(alarmPin, OUTPUT);
   pinMode(bathroomPin, OUTPUT);
   pinMode(fridgePin, OUTPUT);
   pinMode(loungePin, OUTPUT);
   pinMode(kidPin, OUTPUT);
 
+  // Initialize serial output for debugging purposes
   Serial.begin(9600);
-  pinMode(buttonPin, INPUT);
-  digitalWrite(buttonPin, HIGH);
+
+  // Make sure that all leds are OFF when we start
+  digitalWrite(alarmPin, LOW);
+  digitalWrite(bathroomPin, LOW);
+  digitalWrite(fridgePin, LOW);
+  digitalWrite(loungePin, LOW);
+  digitalWrite(kidPin, LOW);
+
+  // Start the sequence
+  turnOn(alarmPin);
+  turnOn(bathroomPin);
+  turnOn(fridgePin);
+  turnOff(fridgePin);
+  turnOn(loungePin);
+  turnOn(fridgePin);
+  turnOff(fridgePin);
+  turnOff(alarmPin);
+  turnOff(bathroomPin);
+  turnOn(kidPin);
+  turnOn(bathroomPin);
+  turnOff(bathroomPin);
+  turnOff(kidPin);
+  turnOn(fridgePin);
+  turnOff(fridgePin);
+  turnOn(doorPin);
+  turnOff(doorPin);
+  turnOn(bathroomPin);
+  turnOff(bathroomPin);
+  turnOff(loungePin);
+  turnOn(doorPin);
 }
 
 void loop()
 {
-  int val = digitalRead(buttonPin); // read the input pin
-  if (prevPress != val && val == 1) // User has pressed the button
-  {
-    Serial.println("Buttom press changed!");
-
-    digitalWrite(alarmPin, HIGH); // Alarm - ON
-    delay(1000);
-    digitalWrite(bathroomPin, HIGH); // Bathroom - ON
-    delay(1000);
-    digitalWrite(fridgePin, HIGH); // Fridge - ON
-    delay(1000);
-    digitalWrite(fridgePin, LOW); // Fridge - OFF
-    delay(1000);
-    digitalWrite(loungePin, HIGH); // Lounge - ON
-    delay(1000);
-    digitalWrite(fridgePin, HIGH); // Fridge - ON
-    delay(1000);
-    digitalWrite(fridgePin, LOW); // Fridge - OFF
-    delay(1000);
-    digitalWrite(alarmPin, LOW); // Alarm - OFF
-    delay(1000);
-    digitalWrite(bathroomPin, LOW); // Bathroom - OFF
-    delay(1000);
-    digitalWrite(kidPin, HIGH); // Kid's Room - ON
-    delay(1000);
-    digitalWrite(bathroomPin, HIGH); // Bathroom - ON
-    delay(1000);
-    digitalWrite(bathroomPin, LOW); // Bathroom - OFF
-    delay(1000);
-    digitalWrite(kidPin, LOW); // Kid's Room - OFF
-    delay(1000);
-    digitalWrite(fridgePin, HIGH); // Fridge - ON
-    delay(1000);
-    digitalWrite(fridgePin, LOW); // Fridge - OFF
-    delay(1000);
-    digitalWrite(bathroomPin, HIGH); // Bathroom - OFF
-    delay(1000);
-    digitalWrite(bathroomPin, LOW); // Bathroom - OFF
-    delay(1000);
-    digitalWrite(loungePin, LOW); // Lounge - OFF
-  }
-  if (val == 0)
-  {
-    digitalWrite(alarmPin, LOW);
-    digitalWrite(bathroomPin, LOW);
-    digitalWrite(fridgePin, LOW);
-    digitalWrite(loungePin, LOW);
-    digitalWrite(kidPin, LOW);
-  }
-  prevPress = val;
+}
+void turnOn(int pin)
+{
+  digitalWrite(pin, HIGH);
+  delay(waitTime);
+}
+void turnOff(int pin)
+{
+  digitalWrite(pin, LOW);
+  delay(waitTime);
 }
