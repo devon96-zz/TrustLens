@@ -13,6 +13,7 @@ Pinout schematic for the board for the future reference. Used board is **Arduino
 - Lounge - Purple cable - Pin 8
 - Kid's room - Yellow cable - Pin 7
 - Door - Red cable - Pin 6
+- Ground - Black cable - Any pin labelled GND
 
 # Constants
 **Delay** - If you want to change how big the delay between each instruction is, modify line 13:

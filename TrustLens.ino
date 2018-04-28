@@ -20,6 +20,7 @@ void setup()
   pinMode(fridgePin, OUTPUT);
   pinMode(loungePin, OUTPUT);
   pinMode(kidPin, OUTPUT);
+  pinMode(doorPin, OUTPUT);
 
   // Initialize serial output for debugging purposes
   Serial.begin(9600);
@@ -30,6 +31,7 @@ void setup()
   digitalWrite(fridgePin, LOW);
   digitalWrite(loungePin, LOW);
   digitalWrite(kidPin, LOW);
+  digitalWrite(doorPin, LOW);
 
   // Start the sequence
   turnOn(alarmPin);
